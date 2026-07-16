@@ -3,8 +3,7 @@
 venv/
 
 # 运行生成日志、报告（本地产物不需要提交仓库）
-logs/
-report/
+
 
 # Python缓存文件
 __pycache__/

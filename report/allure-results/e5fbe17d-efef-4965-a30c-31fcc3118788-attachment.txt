@@ -1,0 +1,36 @@
+2026-07-16 10:58:31 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/login
+2026-07-16 10:58:31 [api_test_logger] INFO  📤 请求参数（JSON）：{'username': 'admin', 'password': 'Admin@123456'}
+2026-07-16 10:58:31 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:31 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3ODQyMDY3MTF9.1mrK70DzKtiT8MMVRKd9gwR7eXkze6G4JhoSSo-o3X4', 'user_id': 1, 'username': 'admin'}, 'msg': '登录成功'}
+2026-07-16 10:58:31 [api_test_logger] INFO  ✅ [Fixture] 管理员登录态初始化完成
+2026-07-16 10:58:31 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/login
+2026-07-16 10:58:31 [api_test_logger] INFO  📤 请求参数（JSON）：{'username': 'test', 'password': 'Test@123456'}
+2026-07-16 10:58:31 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:31 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoidGVzdCIsImV4cCI6MTc4NDIwNjcxMX0.8kqo1abHTu6ra87GpWzxJx1DIrASrBBp8XKRKxW3LUY', 'user_id': 2, 'username': 'test'}, 'msg': '登录成功'}
+2026-07-16 10:58:31 [api_test_logger] INFO  ✅ [Fixture] 成功提取普通用户的有效Token 
+2026-07-16 10:58:31 [api_test_logger] INFO  🔧 [Fixture] 开始制造：真实失效 Session（登录后登出）
+2026-07-16 10:58:31 [api_test_logger] INFO  🔧 [Fixture] 步骤 1/2：执行登录
+2026-07-16 10:58:31 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/login
+2026-07-16 10:58:31 [api_test_logger] INFO  📤 请求参数（JSON）：{'username': 'admin', 'password': 'Admin@123456'}
+2026-07-16 10:58:31 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:31 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3ODQyMDY3MTF9.1mrK70DzKtiT8MMVRKd9gwR7eXkze6G4JhoSSo-o3X4', 'user_id': 1, 'username': 'admin'}, 'msg': '登录成功'}
+2026-07-16 10:58:31 [api_test_logger] INFO  🔧 [Fixture] 步骤 2/2：执行登出，制造失效态
+2026-07-16 10:58:31 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/logout
+2026-07-16 10:58:31 [api_test_logger] INFO  📤 请求头：{}
+2026-07-16 10:58:31 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:31 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {}, 'msg': '登出成功'}
+2026-07-16 10:58:31 [api_test_logger] INFO  ✅ [Fixture] 真实失效 Session 制造完成
+2026-07-16 10:58:31 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/login
+2026-07-16 10:58:31 [api_test_logger] INFO  📤 请求参数（JSON）：{'username': 'admin', 'password': 'Admin@123456'}
+2026-07-16 10:58:31 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:31 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3ODQyMDY3MTF9.1mrK70DzKtiT8MMVRKd9gwR7eXkze6G4JhoSSo-o3X4', 'user_id': 1, 'username': 'admin'}, 'msg': '登录成功'}
+2026-07-16 10:58:31 [api_test_logger] INFO  ✅ [Fixture] 成功提取管理员的有效Token 
+2026-07-16 10:58:31 [api_test_logger] INFO  🔐 当前用例：正向-查询自己的文章列表，鉴权配置已自动加载
+2026-07-16 10:58:31 [api_test_logger] INFO  📤 发送请求：GET http://local_api_basic:5009//api/article/count
+2026-07-16 10:58:31 [api_test_logger] INFO  📤 请求头：{}
+2026-07-16 10:58:31 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:31 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {'articles': {'code': 200, 'count': 72, 'msg': '查询成功'}}, 'msg': '查询成功'}
+2026-07-16 10:58:31 [api_test_logger] INFO  ✅ 【正向-查询自己的文章列表】HTTP状态码断言通过：预期=200，实际=200
+2026-07-16 10:58:31 [api_test_logger] INFO  ✅ 【正向-查询自己的文章列表】业务码断言通过：预期=200，实际=200
+2026-07-16 10:58:31 [api_test_logger] INFO  ✅ 【正向-查询自己的文章列表】响应消息断言通过：预期=查询成功，实际=查询成功
+2026-07-16 10:58:31 [api_test_logger] INFO  ✅ 【正向-查询自己的文章列表】文章数量应为非负数断言通过：预期最小值=0，实际值=72

@@ -1,0 +1,44 @@
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/login
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 请求参数（JSON）：{'username': 'admin', 'password': 'Admin@123456'}
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3ODQyMDY3MTB9.x0mjdhVzalS1pu6Nwx0yNpGvCbGe4u4IKnaq4dwbWvk', 'user_id': 1, 'username': 'admin'}, 'msg': '登录成功'}
+2026-07-16 10:58:30 [api_test_logger] INFO  ✅ [Fixture] 管理员登录态初始化完成
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/login
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 请求参数（JSON）：{'username': 'test', 'password': 'Test@123456'}
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoidGVzdCIsImV4cCI6MTc4NDIwNjcxMH0.99Q6SGQk3peX_B6R5l-FccjCxv8pIDhQjSs5hFqvXBA', 'user_id': 2, 'username': 'test'}, 'msg': '登录成功'}
+2026-07-16 10:58:30 [api_test_logger] INFO  ✅ [Fixture] 成功提取普通用户的有效Token 
+2026-07-16 10:58:30 [api_test_logger] INFO  🔧 [Fixture] 开始制造：真实失效 Session（登录后登出）
+2026-07-16 10:58:30 [api_test_logger] INFO  🔧 [Fixture] 步骤 1/2：执行登录
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/login
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 请求参数（JSON）：{'username': 'admin', 'password': 'Admin@123456'}
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3ODQyMDY3MTB9.x0mjdhVzalS1pu6Nwx0yNpGvCbGe4u4IKnaq4dwbWvk', 'user_id': 1, 'username': 'admin'}, 'msg': '登录成功'}
+2026-07-16 10:58:30 [api_test_logger] INFO  🔧 [Fixture] 步骤 2/2：执行登出，制造失效态
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/logout
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 请求头：{}
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {}, 'msg': '登出成功'}
+2026-07-16 10:58:30 [api_test_logger] INFO  ✅ [Fixture] 真实失效 Session 制造完成
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/login
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 请求参数（JSON）：{'username': 'admin', 'password': 'Admin@123456'}
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3ODQyMDY3MTB9.x0mjdhVzalS1pu6Nwx0yNpGvCbGe4u4IKnaq4dwbWvk', 'user_id': 1, 'username': 'admin'}, 'msg': '登录成功'}
+2026-07-16 10:58:30 [api_test_logger] INFO  ✅ [Fixture] 成功提取管理员的有效Token 
+2026-07-16 10:58:30 [api_test_logger] INFO  🔐 当前用例：正向-正常发布（标题/内容长度合规），鉴权配置已自动加载
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/article/create
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 请求参数（JSON）：{'title': 'Flask接口自动化测试实战', 'content': '这是一篇符合长度要求的测试文章内容，用于验证发布接口的正向场景。内容长度在5-5000字符之间，满足接口约束。'}
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 请求头：{}
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {'article_id': 73, 'create_time': '2026-07-16 10:58:30', 'title': 'Flask接口自动化测试实战'}, 'msg': '文章发布成功'}
+2026-07-16 10:58:30 [api_test_logger] INFO  ✅ 【正向-正常发布（标题/内容长度合规）】HTTP状态码断言通过：预期=200，实际=200
+2026-07-16 10:58:30 [api_test_logger] INFO  ✅ 【正向-正常发布（标题/内容长度合规）】业务码断言通过：预期=200，实际=200
+2026-07-16 10:58:30 [api_test_logger] INFO  ✅ 【正向-正常发布（标题/内容长度合规）】响应消息断言通过：预期=文章发布成功，实际=文章发布成功
+2026-07-16 10:58:30 [api_test_logger] INFO  ✅ 【正向-正常发布（标题/内容长度合规）】data字段包含字段断言通过：字段=article_id
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/article/delete
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 请求参数（JSON）：{'article_id': 73}
+2026-07-16 10:58:30 [api_test_logger] INFO  📤 请求头：{}
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 收到响应：HTTP状态码 200
+2026-07-16 10:58:30 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 200, 'data': {'article_id': 73}, 'msg': '文章删除成功'}
+2026-07-16 10:58:30 [api_test_logger] INFO  ✅ 【正向-正常发布（标题/内容长度合规）-临时文章清理】HTTP状态码断言通过：预期=200，实际=200
+2026-07-16 10:58:30 [api_test_logger] INFO  ✅ 【正向-正常发布（标题/内容长度合规）-临时文章清理】业务码断言通过：预期=200，实际=200
