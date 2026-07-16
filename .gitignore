@@ -1,0 +1,34 @@
+# Python虚拟环境
+.venv/
+venv/
+
+# 运行生成日志、报告（本地产物不需要提交仓库）
+logs/
+report/
+
+# Python缓存文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# 敏感环境配置（密钥，绝对不能上传GitHub）
+
+# IDE编辑器缓存
+.idea/
+.vscode/
+.DS_Store
+*.swp
+
+# 本地临时文件夹
+外部库/
+临时文件和控制台/
+
+# Git自身缓存
+.git/
+
+# 系统、日志临时文件
+*.log

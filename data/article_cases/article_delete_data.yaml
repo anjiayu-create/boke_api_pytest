@@ -1,0 +1,52 @@
+# 4. 删除文章用例（参数约束+全鉴权场景）
+delete_article_cases:
+  # 正向场景
+  - case_name: "正向-删除存在的文章ID"
+    article_id: ""
+    expect_code: 200
+    expect_msg: "文章删除成功"
+    marks: ["smoke", "positive"]
+
+  # 参数约束异常
+  - case_name: "异常-文章ID为空"
+    article_id: ""
+    expect_code: 400
+    expect_msg: "article_id不能为空"
+    marks: ["negative"]
+
+  - case_name: "异常-文章ID为字符串"
+    article_id: "xyz789"
+    expect_code: 400
+    expect_msg: "article_id必须为数字"
+    marks: ["negative"]
+
+  - case_name: "异常-文章不存在"
+    article_id: 999999
+    expect_code: 400
+    expect_msg: "文章不存在或无权限访问"
+    marks: ["negative"]
+
+  # 鉴权异常场景
+  - case_name: "鉴权异常-Token缺失"
+    article_id: ""
+    expect_code: 401
+    expect_msg: "未提供有效身份认证Token"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Token已过期"
+    article_id: ""
+    expect_code: 401
+    expect_msg: "身份认证Token已过期"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Session已失效"
+    article_id: ""
+    expect_code: 401
+    expect_msg: "登录会话已失效，请重新登录"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Token与Session不匹配"
+    article_id: ""
+    expect_code: 401
+    expect_msg: "身份认证与登录会话不匹配"
+    marks: ["negative", "auth"]

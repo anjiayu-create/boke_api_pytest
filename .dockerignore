@@ -1,0 +1,13 @@
+.venv/
+logs/
+report/
+__pycache__/
+*.pyc
+*.pyo
+.idea/
+.vscode/
+.DS_Store
+外部库/
+临时文件和控制台/
+.git/
+

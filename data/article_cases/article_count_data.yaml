@@ -1,0 +1,28 @@
+# 5. 查询文章列表用例（鉴权场景）
+count_article_cases:
+  - case_name: "正向-查询自己的文章列表"
+    expect_code: 200
+    expect_msg: "查询成功"
+    count: 4
+    marks: ["smoke", "positive"]
+
+  - case_name: "鉴权异常-Token缺失"
+    expect_code: 401
+    expect_msg: "未提供有效身份认证Token"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Token已过期"
+    expect_code: 401
+    expect_msg: "身份认证Token已过期"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Session已失效"
+    expect_code: 401
+    expect_msg: "登录会话已失效，请重新登录"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Token与Session不匹配"
+    expect_code: 401
+    expect_msg: "身份认证与登录会话不匹配"
+    marks: ["negative", "auth"]
+

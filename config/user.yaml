@@ -1,0 +1,9 @@
+# 管理员账号（核心流程使用）
+admin:
+  username: "admin"
+  password: "Admin@123456"
+# 普通用户账号（后续扩展用）
+normal_user:
+  username: "test"
+  password: "Test@123456"
+

@@ -1,0 +1,97 @@
+# 1. 发布文章用例（参数约束+全鉴权场景）
+create_article_cases:
+  # 正向场景
+  - case_name: "正向-正常发布（标题/内容长度合规）"
+    title: "Flask接口自动化测试实战"
+    content: "这是一篇符合长度要求的测试文章内容，用于验证发布接口的正向场景。内容长度在5-5000字符之间，满足接口约束。"
+    expect_code: 200
+    expect_msg: "文章发布成功"
+    marks: ["smoke", "positive"]
+
+  # 参数约束异常
+  - case_name: "异常-标题为空"
+    title: ""
+    content: "满足5-5000字符的内容"
+    expect_code: 400
+    expect_msg: "标题/内容不能为空"
+    marks: ["negative"]
+
+  - case_name: "异常-内容为空"
+    title: "满足2-50字符的标题"
+    content: ""
+    expect_code: 400
+    expect_msg: "标题/内容不能为空"
+    marks: ["negative"]
+
+  - case_name: "异常-标题长度<2字符"
+    title: "测"
+    content: "内容符合长度要求"
+    expect_code: 400
+    expect_msg: "标题需为2-50个字符"
+    marks: ["negative"]
+
+  - case_name: "异常-标题长度>50字符"
+    title: "这是一个超过五十个字符的超长标题用于测试系统的参数校验规则12345678901234567890这是一个超过五十个字符的超长标题用于测试系统的参数校验规则12345678901234567890"
+    content: "内容符合长度要求"
+    expect_code: 400
+    expect_msg: "标题需为2-50个字符"
+    marks: ["negative"]
+
+  - case_name: "异常-内容长度<5字符"
+    title: "标题符合长度要求"
+    content: "1234"
+    expect_code: 400
+    expect_msg: "内容需为5-5000个字符"
+    marks: ["negative"]
+
+  # 鉴权异常场景（真实触发）
+  - case_name: "鉴权异常-Token缺失"
+    title: "标题合规"
+    content: "内容合规测试"
+    expect_code: 401
+    expect_msg: "未提供有效身份认证Token"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Token格式错误"
+    title: "标题合规"
+    content: "内容合规测试"
+    expect_code: 401
+    expect_msg: "未提供有效身份认证Token"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Token已过期"
+    title: "标题合规"
+    content: "内容合规ceshi"
+    expect_code: 401
+    expect_msg: "身份认证Token已过期"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Session已失效"
+    title: "标题合规"
+    content: "内容合规测试"
+    expect_code: 401
+    expect_msg: "登录会话已失效，请重新登录"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Token与Session不匹配"
+    title: "标题合规"
+    content: "内容合规测试"
+    expect_code: 401
+    expect_msg: "身份认证与登录会话不匹配"
+    marks: ["negative", "auth"]
+
+  # 临时跳过未开发的功能
+  - case_name: "待开发-支持markdown格式发布"
+    title: "# Markdown标题"
+    content: "## 二级标题"
+    expect_code: 200
+    expect_msg: "文章发布成功"
+    marks: [ "skip", "positive" ]  # 标记为跳过
+
+  # 新增：标记已知bug
+  - case_name: "已知bug-标题内容小于1时会报错"
+    title: "测"
+    content: "测试内容"
+    expect_code: 400
+    expect_msg: ""
+    marks: [ "xfail", "negative" ]  # 标记为预期失败

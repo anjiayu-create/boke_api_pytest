@@ -1,0 +1,101 @@
+# 2. 修改文章用例（参数约束+全鉴权场景）
+update_article_cases:
+  # 正向场景
+  - case_name: "正向-正常修改标题+内容"
+    auth_scenario: "valid_admin"
+    title: "修改后的标题（合规）"
+    content: "修改后的内容（合规）"
+    expect_code: 200
+    expect_msg: "文章修改成功"
+    marks: ["smoke", "positive"]
+
+  - case_name: "正向-只修改标题"
+    auth_scenario: "valid_admin"
+    title: "仅修改标题（合规）"
+    content: ""
+    expect_code: 200
+    expect_msg: "文章修改成功"
+    marks: ["smoke", "positive"]
+
+  - case_name: "正向-只修改内容"
+    auth_scenario: "valid_admin"
+    title: ""
+    content: "仅修改内容（合规）"
+    expect_code: 200
+    expect_msg: "文章修改成功"
+    marks: ["smoke", "positive"]
+
+  # 参数约束异常
+  - case_name: "异常-标题+内容全空"
+    auth_scenario: "valid_admin"
+    title: ""
+    content: ""
+    expect_code: 400
+    expect_msg: "至少修改标题或内容其中一项"
+    marks: ["negative"]
+
+  - case_name: "异常-修改后标题长度<2字符"
+    auth_scenario: "valid_admin"
+    title: "改"
+    content: ""
+    expect_code: 400
+    expect_msg: "标题需为2-50个字符"
+    marks: ["negative"]
+
+  - case_name: "异常-修改后内容长度<5字符"
+    auth_scenario: "valid_admin"
+    title: ""
+    content: "1234"
+    expect_code: 400
+    expect_msg: "内容需为5-5000个字符"
+    marks: ["negative"]
+
+  - case_name: "异常-修改不存在的文章ID"
+    auth_scenario: "valid_admin"
+    title: "标题合规"
+    content: "内容合规"
+    article_id: 999999
+    expect_code: 400
+    expect_msg: "文章不存在或无权限访问"
+    marks: ["negative"]
+
+  # 鉴权异常场景
+  - case_name: "鉴权异常-Token缺失"
+    auth_scenario: "no_token"
+    title: "标题合规"
+    content: "内容合规"
+    expect_code: 401
+    expect_msg: "未提供有效身份认证Token"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Token格式错误"
+    auth_scenario: "bad_format_token"
+    title: "标题合规"
+    content: "内容合规"
+    expect_code: 401
+    expect_msg: "未提供有效身份认证Token"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Token已过期"
+    auth_scenario: "expired_token"
+    title: "标题合规"
+    content: "内容合规"
+    expect_code: 401
+    expect_msg: "身份认证Token已过期"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Session已失效"
+    auth_scenario: "invalid_session"
+    title: "标题合规"
+    content: "内容合规测试"
+    expect_code: 401
+    expect_msg: "登录会话已失效，请重新登录"
+    marks: ["negative", "auth"]
+
+  - case_name: "鉴权异常-Token与Session不匹配"
+    auth_scenario: "mismatched_token"
+    title: "标题合规"
+    content: "内容合规"
+    expect_code: 401
+    expect_msg: "身份认证与登录会话不匹配"
+    marks: ["negative", "auth"]
