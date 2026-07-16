@@ -1,8 +1,0 @@
-2026-07-16 10:58:32 [api_test_logger] INFO  📤 发送请求：POST http://local_api_basic:5009//api/login
-2026-07-16 10:58:32 [api_test_logger] INFO  📤 请求参数（JSON）：{'username': 'admin', 'password': ''}
-2026-07-16 10:58:32 [api_test_logger] INFO  📥 收到响应：HTTP状态码 400
-2026-07-16 10:58:32 [api_test_logger] INFO  📥 响应体（JSON）：{'code': 400, 'msg': '用户名/密码不能为空'}
-2026-07-16 10:58:32 [api_test_logger] WARNING  ⚠️ HTTP状态码异常：400
-2026-07-16 10:58:32 [api_test_logger] INFO  ✅ 【异常登录-空密码】HTTP状态码断言通过：预期=400，实际=400
-2026-07-16 10:58:32 [api_test_logger] INFO  ✅ 【异常登录-空密码】业务码断言通过：预期=400，实际=400
-2026-07-16 10:58:32 [api_test_logger] INFO  ✅ 【异常登录-空密码】响应消息断言通过：预期=用户名/密码不能为空，实际=用户名/密码不能为空

@@ -1,4 +1,0 @@
-DEBUG    urllib3.connectionpool:connectionpool.py:241 Starting new HTTP connection (1): local_api_basic:5009
-DEBUG    urllib3.connectionpool:connectionpool.py:544 http://local_api_basic:5009 "POST /api/login HTTP/1.1" 200 238
-DEBUG    urllib3.connectionpool:connectionpool.py:289 Resetting dropped connection: local_api_basic
-DEBUG    urllib3.connectionpool:connectionpool.py:544 http://local_api_basic:5009 "POST /api/login HTTP/1.1" 200 238
